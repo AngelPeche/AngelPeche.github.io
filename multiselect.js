@@ -34,6 +34,8 @@
             this.submitButton.addEventListener("click", () => {
                 this._submit();
             });
+
+            this.password = "";
         }
 
         connectedCallback() {
@@ -41,12 +43,16 @@
         }
 
         static get observedAttributes() {
-            return ["options"];
+            return ["options", "metadata", "password"];
         }
 
         attributeChangedCallback(name, oldValue, newValue) {
             if (name === "options") {
                 this._renderOptions();
+            } else if (name === "metadata") {
+                this.metadata = newValue;
+            } else if (name === "password") {
+                this.password = newValue;
             }
         }
 
@@ -81,16 +87,13 @@
             const selectElement = this.shadowRoot.getElementById("multiSelect");
             const selectedOptions = Array.from(selectElement.selectedOptions).map(option => option.value);
 
-            return {
-                selectedOptions: selectedOptions,
-                totalOptions: selectElement.options.length,
-                allOptions: Array.from(selectElement.options).map(option => option.value)
-            };
+            return selectedOptions;
         }
 
         setOptions(value) {
             this.setAttribute("options", JSON.stringify(value));
         }
+
     }
 
     customElements.define("com-custom-multiselect", MultiSelectWidget);
