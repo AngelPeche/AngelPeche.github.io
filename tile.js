@@ -7,10 +7,10 @@
     var Ar = [];
 
     let tmpl = document.createElement("template");
-    tmpl.innerHTML = '
+    tmpl.innerHTML = `
       <style>
       </style>        
-    ';
+    ´;
 
     class Tile extends HTMLElement {
 
