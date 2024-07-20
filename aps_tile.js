@@ -40,6 +40,10 @@
               <td><input id="icon" name="icon" type="text"></td>
             </tr>
             <tr>
+              <td><label for="Url">Url</label></td>
+              <td><input id="url" name="url" type="text"></td>
+            </tr>
+            <tr>
               <td><label for="Unit">Unit</label></td>
               <td><input id="unit" name="unit" type="text"></td>
             </tr>
@@ -115,6 +119,13 @@
             this.setValue("icon", value);
         }
 
+        get url() {
+            return this.getValue("url");
+        }
+        set url(value) {
+            this.setValue("url", value);
+        }
+
         get unit() {
             return this.getValue("unit");
         }
@@ -141,6 +152,7 @@
                 "title",
                 "subtitle",
                 "icon",
+                "url",
                 "unit",
                 "footer"
             ];
