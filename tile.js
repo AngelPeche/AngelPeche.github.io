@@ -303,7 +303,7 @@
                     press : function(evt) {
 						//MessageToast.show("The GenericTile is pressed.");
 						window.open( that._export_settings.url ,"_blank");
-						//that._firePropertiesChanged();
+						that._firePropertiesChanged();
 						this.settings = {};
                         this.settings.title = "";
                         that.dispatchEvent(new CustomEvent("onStart", {
