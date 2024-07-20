@@ -180,7 +180,7 @@
         }
 
 	get url(){
-	    return this._export_settings.icon;
+	    return this._export_settings.url;
 	}
 	
 	set url(value){
