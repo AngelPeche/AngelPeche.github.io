@@ -153,6 +153,25 @@
         }
 
         // SETTINGS
+        get Data() {
+            const oMultiInput = this.shadowRoot.getElementById("multiInput");
+            
+            // Asegura que el elemento multiInput esté inicializado
+            if (oMultiInput) {
+                const aTokens = oMultiInput.getTokens();
+                
+                // Obtiene el texto de cada token y lo une en un solo string
+                const sData = aTokens.map(token => token.getText()).join(",");
+                
+                console.log(sData);  // Muestra los datos en consola (opcional)
+
+                return sData;  // Retorna los datos recolectados
+            } else {
+                console.warn("El elemento multiInput no está disponible");
+                return "";
+            }
+        }
+        
         get title() {
             return this._export_settings.title;
         }
